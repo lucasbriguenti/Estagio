@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace eMecanica
 {
-    public partial class Login : Form
+    public partial class LoginTeste : Form
     {
-        public Login()
+        public LoginTeste()
         {
             InitializeComponent();
         }

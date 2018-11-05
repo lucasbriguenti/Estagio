@@ -20,3 +20,4 @@ C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLib
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLibrary.csproj.CopyComplete
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLibrary.dll
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLibrary.pdb
+C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLibrary.csprojAssemblyReference.cache
