@@ -12,11 +12,28 @@ namespace eMecanica
 {
     public partial class frmHome : Form
     {
+      
         public frmHome()
         {
             InitializeComponent();
+            this.MouseDown += new MouseEventHandler(m_MouseDown);
+            this.MouseMove += new MouseEventHandler(m_MouseMove);
+        }
+        private int X { get;  set; }
+        private int Y { get;  set; }
+        private void m_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            X = this.Left - MousePosition.X;
+            Y = this.Top - MousePosition.Y;
         }
 
+        private void m_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            this.Left = X + MousePosition.X;
+            this.Top = Y + MousePosition.Y;
+        }
         private void bunifuCustomLabel1_Click(object sender, EventArgs e)
         {
             Close();

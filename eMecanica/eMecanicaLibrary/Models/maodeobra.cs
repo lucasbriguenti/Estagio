@@ -6,28 +6,27 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.maodeobra")]
-    internal partial class maodeobra
+    [Table("maoDeObra")]
+    public partial class maoDeObra
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        internal maodeobra()
+        public maoDeObra()
         {
-            servico_maodeobra = new HashSet<servico_maodeobra>();
+            servico_maoDeObra = new HashSet<servico_maoDeObra>();
         }
 
         [Key]
-        internal int mdo_id { get; set; }
+        public int mdo_id { get; set; }
 
-        internal decimal mdo_valor { get; set; }
+        public decimal mdo_valor { get; set; }
 
         [Required]
         [StringLength(40)]
-        internal string mdo_descricao { get; set; }
+        public string mdo_descricao { get; set; }
 
-        [Column(TypeName = "date")]
-        internal DateTime? mdo_tempoMedio { get; set; }
+        public DateTime? mdo_tempoMedio { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<servico_maodeobra> servico_maodeobra { get; set; }
+        public virtual ICollection<servico_maoDeObra> servico_maoDeObra { get; set; }
     }
 }

@@ -6,25 +6,26 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.marca")]
-    internal partial class marca
+    [Table("marca")]
+    public partial class marca
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        internal marca()
+        public marca()
         {
             modelo = new HashSet<modelo>();
         }
 
         [Key]
-        internal int mar_id { get; set; }
+        public int mar_id { get; set; }
 
         [Required]
         [StringLength(20)]
-        internal string mar_nome { get; set; }
+        public string mar_nome { get; set; }
 
-        internal byte[] mar_logo { get; set; }
+        [Column(TypeName = "image")]
+        public byte[] mar_logo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<modelo> modelo { get; set; }
+        public virtual ICollection<modelo> modelo { get; set; }
     }
 }

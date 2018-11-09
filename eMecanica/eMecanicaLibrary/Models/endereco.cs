@@ -6,51 +6,59 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.endereco")]
-    internal partial class endereco
+    [Table("endereco")]
+    public partial class endereco
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        internal endereco()
+        public endereco()
         {
             cliente = new HashSet<cliente>();
             empresa = new HashSet<empresa>();
             fornecedor = new HashSet<fornecedor>();
+            parametros = new HashSet<parametros>();
             usuario = new HashSet<usuario>();
         }
 
         [Key]
-        internal int end_id { get; set; }
+        public int end_id { get; set; }
 
         [Required]
         [StringLength(30)]
-        internal string end_rua { get; set; }
+        public string end_rua { get; set; }
 
-        internal int end_numero { get; set; }
+        public int end_numero { get; set; }
 
         [Required]
         [StringLength(30)]
-        internal string end_bairro { get; set; }
+        public string end_bairro { get; set; }
 
         [StringLength(30)]
-        internal string end_complemento { get; set; }
+        public string end_complemento { get; set; }
 
         [StringLength(30)]
-        internal string end_referencia { get; set; }
+        public string end_referencia { get; set; }
 
-        internal int cid_id { get; set; }
+        public int cid_id { get; set; }
 
-        internal virtual cidade cidade { get; set; }
+        [Required]
+        [StringLength(10)]
+        public string end_cep { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<cliente> cliente { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<empresa> empresa { get; set; }
+        public virtual cidade cidade { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<fornecedor> fornecedor { get; set; }
+        public virtual ICollection<cliente> cliente { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<usuario> usuario { get; set; }
+        public virtual ICollection<empresa> empresa { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<fornecedor> fornecedor { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<parametros> parametros { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<usuario> usuario { get; set; }
     }
 }

@@ -6,31 +6,31 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.despesa")]
-    internal partial class despesa
+    [Table("despesa")]
+    public partial class despesa
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        internal despesa()
+        public despesa()
         {
-            contapagar = new HashSet<contapagar>();
+            contaPagar = new HashSet<contaPagar>();
         }
 
         [Key]
-        internal int des_id { get; set; }
+        public int des_id { get; set; }
 
         [Required]
         [StringLength(50)]
-        internal string des_descricao { get; set; }
+        public string des_descricao { get; set; }
 
-        internal decimal des_valor { get; set; }
+        public decimal des_valor { get; set; }
 
-        internal int des_tipo { get; set; }
+        public int des_tipo { get; set; }
 
-        internal int usu_id { get; set; }
+        public int usu_id { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<contapagar> contapagar { get; set; }
+        public virtual ICollection<contaPagar> contaPagar { get; set; }
 
-        internal virtual usuario usuario { get; set; }
+        public virtual usuario usuario { get; set; }
     }
 }

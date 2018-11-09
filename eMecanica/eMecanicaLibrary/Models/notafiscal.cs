@@ -6,43 +6,31 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.notafiscal")]
-    internal partial class notafiscal
+    [Table("notaFiscal")]
+    public partial class notaFiscal
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        internal notafiscal()
+        public notaFiscal()
         {
             produto_nota = new HashSet<produto_nota>();
         }
 
         [Key]
         [StringLength(100)]
-        internal string not_id { get; set; }
-
-        [Required]
-        [StringLength(4)]
-        internal string not_cfop { get; set; }
+        public string not_id { get; set; }
 
         [StringLength(200)]
-        internal string not_dadosadic { get; set; }
+        public string not_dadosadic { get; set; }
 
-        [Required]
-        [StringLength(4)]
-        internal string not_cst { get; set; }
+        public int emp_id_emissora { get; set; }
 
-        [Required]
-        [StringLength(2)]
-        internal string not_cstpiscofins { get; set; }
+        public int cli_id { get; set; }
 
-        internal int emp_id_emissora { get; set; }
+        public virtual cliente cliente { get; set; }
 
-        internal int cli_id { get; set; }
-
-        internal virtual cliente cliente { get; set; }
-
-        internal virtual empresa empresa { get; set; }
+        public virtual empresa empresa { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<produto_nota> produto_nota { get; set; }
+        public virtual ICollection<produto_nota> produto_nota { get; set; }
     }
 }

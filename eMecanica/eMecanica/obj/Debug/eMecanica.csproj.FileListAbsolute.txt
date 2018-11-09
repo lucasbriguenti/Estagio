@@ -44,3 +44,5 @@ C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanica\bin\Debug\eMecanicaLibrary.dl
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanica\obj\Debug\eMecanica.LoginTeste.resources
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanica\obj\Debug\eMecanica.frmLogin.resources
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanica\obj\Debug\eMecanica.frmHome.resources
+C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanica\bin\Debug\bancoeMecanica.mdf
+C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanica\bin\Debug\bancoeMecanica_log.ldf

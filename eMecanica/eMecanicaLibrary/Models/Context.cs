@@ -5,41 +5,43 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    internal partial class Context : DbContext
+    public partial class Context : DbContext
     {
-        internal Context()
+        public Context()
             : base("name=Context")
         {
         }
-
-        internal virtual DbSet<cidade> cidade { get; set; }
-        internal virtual DbSet<cliente> cliente { get; set; }
-        internal virtual DbSet<cliente_pf> cliente_pf { get; set; }
-        internal virtual DbSet<cliente_pj> cliente_pj { get; set; }
-        internal virtual DbSet<compra> compra { get; set; }
-        internal virtual DbSet<contapagar> contapagar { get; set; }
-        internal virtual DbSet<contareceber> contareceber { get; set; }
-        internal virtual DbSet<despesa> despesa { get; set; }
-        internal virtual DbSet<empresa> empresa { get; set; }
-        internal virtual DbSet<endereco> endereco { get; set; }
-        internal virtual DbSet<estado> estado { get; set; }
-        internal virtual DbSet<fornecedor> fornecedor { get; set; }
-        internal virtual DbSet<maodeobra> maodeobra { get; set; }
-        internal virtual DbSet<marca> marca { get; set; }
-        internal virtual DbSet<modelo> modelo { get; set; }
-        internal virtual DbSet<notafiscal> notafiscal { get; set; }
-        internal virtual DbSet<produto> produto { get; set; }
-        internal virtual DbSet<produto_compra> produto_compra { get; set; }
-        internal virtual DbSet<produto_nota> produto_nota { get; set; }
-        internal virtual DbSet<produto_servico> produto_servico { get; set; }
-        internal virtual DbSet<produto_venda> produto_venda { get; set; }
-        internal virtual DbSet<servico> servico { get; set; }
-        internal virtual DbSet<servico_maodeobra> servico_maodeobra { get; set; }
-        internal virtual DbSet<unidade> unidade { get; set; }
-        internal virtual DbSet<usuario> usuario { get; set; }
-        internal virtual DbSet<veiculo> veiculo { get; set; }
-        internal virtual DbSet<venda> venda { get; set; }
-
+        #region dbsets
+        public virtual DbSet<cidade> cidade { get; set; }
+        public virtual DbSet<cliente> cliente { get; set; }
+        public virtual DbSet<cliente_pf> cliente_pf { get; set; }
+        public virtual DbSet<cliente_pj> cliente_pj { get; set; }
+        public virtual DbSet<compra> compra { get; set; }
+        public virtual DbSet<contaPagar> contaPagar { get; set; }
+        public virtual DbSet<contaReceber> contaReceber { get; set; }
+        public virtual DbSet<despesa> despesa { get; set; }
+        public virtual DbSet<empresa> empresa { get; set; }
+        public virtual DbSet<endereco> endereco { get; set; }
+        public virtual DbSet<estado> estado { get; set; }
+        public virtual DbSet<fornecedor> fornecedor { get; set; }
+        public virtual DbSet<maoDeObra> maoDeObra { get; set; }
+        public virtual DbSet<marca> marca { get; set; }
+        public virtual DbSet<modelo> modelo { get; set; }
+        public virtual DbSet<notaFiscal> notaFiscal { get; set; }
+        public virtual DbSet<parametros> parametros { get; set; }
+        public virtual DbSet<produto> produto { get; set; }
+        public virtual DbSet<produto_compra> produto_compra { get; set; }
+        public virtual DbSet<produto_nota> produto_nota { get; set; }
+        public virtual DbSet<produto_servico> produto_servico { get; set; }
+        public virtual DbSet<produto_venda> produto_venda { get; set; }
+        public virtual DbSet<servico> servico { get; set; }
+        public virtual DbSet<servico_maoDeObra> servico_maoDeObra { get; set; }
+        public virtual DbSet<unidade> unidade { get; set; }
+        public virtual DbSet<usuario> usuario { get; set; }
+        public virtual DbSet<veiculo> veiculo { get; set; }
+        public virtual DbSet<venda> venda { get; set; }
+        #endregion
+        #region modelcreating
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<cidade>()
@@ -65,6 +67,7 @@ namespace eMecanicaLibrary.Models
 
             modelBuilder.Entity<cliente>()
                 .Property(e => e.cli_tipo)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<cliente>()
@@ -85,7 +88,7 @@ namespace eMecanicaLibrary.Models
                 .WithRequired(e => e.cliente);
 
             modelBuilder.Entity<cliente>()
-                .HasMany(e => e.notafiscal)
+                .HasMany(e => e.notaFiscal)
                 .WithRequired(e => e.cliente)
                 .WillCascadeOnDelete(false);
 
@@ -114,6 +117,7 @@ namespace eMecanicaLibrary.Models
 
             modelBuilder.Entity<cliente_pf>()
                 .Property(e => e.cli_sexo)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<cliente_pj>()
@@ -129,21 +133,43 @@ namespace eMecanicaLibrary.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<compra>()
+                .Property(e => e.com_valorTotal)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<compra>()
                 .HasMany(e => e.produto_compra)
                 .WithRequired(e => e.compra)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<contapagar>()
+            modelBuilder.Entity<contaPagar>()
+                .Property(e => e.conp_valor)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<contaPagar>()
                 .Property(e => e.conp_formapagamento)
+                .IsFixedLength()
                 .IsUnicode(false);
 
-            modelBuilder.Entity<contareceber>()
+            modelBuilder.Entity<contaReceber>()
+                .Property(e => e.conr_valorpago)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<contaReceber>()
+                .Property(e => e.conr_valor)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<contaReceber>()
                 .Property(e => e.conr_formapagamento)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<despesa>()
                 .Property(e => e.des_descricao)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<despesa>()
+                .Property(e => e.des_valor)
+                .HasPrecision(2, 0);
 
             modelBuilder.Entity<empresa>()
                 .Property(e => e.emp_cnpj)
@@ -170,7 +196,7 @@ namespace eMecanicaLibrary.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<empresa>()
-                .HasMany(e => e.notafiscal)
+                .HasMany(e => e.notaFiscal)
                 .WithRequired(e => e.empresa)
                 .HasForeignKey(e => e.emp_id_emissora)
                 .WillCascadeOnDelete(false);
@@ -192,6 +218,10 @@ namespace eMecanicaLibrary.Models
                 .IsUnicode(false);
 
             modelBuilder.Entity<endereco>()
+                .Property(e => e.end_cep)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<endereco>()
                 .HasMany(e => e.cliente)
                 .WithRequired(e => e.endereco)
                 .WillCascadeOnDelete(false);
@@ -203,6 +233,11 @@ namespace eMecanicaLibrary.Models
 
             modelBuilder.Entity<endereco>()
                 .HasMany(e => e.fornecedor)
+                .WithRequired(e => e.endereco)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<endereco>()
+                .HasMany(e => e.parametros)
                 .WithRequired(e => e.endereco)
                 .WillCascadeOnDelete(false);
 
@@ -257,13 +292,17 @@ namespace eMecanicaLibrary.Models
                 .WithRequired(e => e.fornecedor)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<maodeobra>()
+            modelBuilder.Entity<maoDeObra>()
+                .Property(e => e.mdo_valor)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<maoDeObra>()
                 .Property(e => e.mdo_descricao)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<maodeobra>()
-                .HasMany(e => e.servico_maodeobra)
-                .WithRequired(e => e.maodeobra)
+            modelBuilder.Entity<maoDeObra>()
+                .HasMany(e => e.servico_maoDeObra)
+                .WithRequired(e => e.maoDeObra)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<marca>()
@@ -284,30 +323,50 @@ namespace eMecanicaLibrary.Models
                 .WithRequired(e => e.modelo)
                 .WillCascadeOnDelete(false);
 
-            modelBuilder.Entity<notafiscal>()
+            modelBuilder.Entity<notaFiscal>()
                 .Property(e => e.not_id)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<notafiscal>()
-                .Property(e => e.not_cfop)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<notafiscal>()
+            modelBuilder.Entity<notaFiscal>()
                 .Property(e => e.not_dadosadic)
                 .IsUnicode(false);
 
-            modelBuilder.Entity<notafiscal>()
-                .Property(e => e.not_cst)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<notafiscal>()
-                .Property(e => e.not_cstpiscofins)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<notafiscal>()
+            modelBuilder.Entity<notaFiscal>()
                 .HasMany(e => e.produto_nota)
-                .WithRequired(e => e.notafiscal)
+                .WithRequired(e => e.notaFiscal)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_inscestadual)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_inscmunicipal)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_razaosocial)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_nomefantasia)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_cnpj)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_logo)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_corfundo)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<parametros>()
+                .Property(e => e.par_corfonte)
+                .IsUnicode(false);
 
             modelBuilder.Entity<produto>()
                 .Property(e => e.prod_nome)
@@ -324,6 +383,14 @@ namespace eMecanicaLibrary.Models
             modelBuilder.Entity<produto>()
                 .Property(e => e.prod_ncm)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<produto>()
+                .Property(e => e.prod_valorVenda)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<produto>()
+                .Property(e => e.prod_valorCompra)
+                .HasPrecision(2, 0);
 
             modelBuilder.Entity<produto>()
                 .HasMany(e => e.produto_compra)
@@ -345,13 +412,49 @@ namespace eMecanicaLibrary.Models
                 .WithRequired(e => e.produto)
                 .WillCascadeOnDelete(false);
 
+            modelBuilder.Entity<produto_compra>()
+                .Property(e => e.pc_valorCompra)
+                .HasPrecision(2, 0);
+
             modelBuilder.Entity<produto_nota>()
                 .Property(e => e.not_id)
                 .IsUnicode(false);
 
+            modelBuilder.Entity<produto_nota>()
+                .Property(e => e.pn_valor)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<produto_nota>()
+                .Property(e => e.pn_valortributo)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<produto_nota>()
+                .Property(e => e.pn_cfop)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<produto_servico>()
+                .Property(e => e.ps_desconto)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<produto_servico>()
+                .Property(e => e.ps_valorVenda)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<produto_venda>()
+                .Property(e => e.pv_valor)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<produto_venda>()
+                .Property(e => e.pv_desconto)
+                .HasPrecision(2, 0);
+
             modelBuilder.Entity<servico>()
                 .Property(e => e.vei_placa)
                 .IsUnicode(false);
+
+            modelBuilder.Entity<servico>()
+                .Property(e => e.ser_valortotal)
+                .HasPrecision(2, 0);
 
             modelBuilder.Entity<servico>()
                 .Property(e => e.ser_descricao)
@@ -368,14 +471,22 @@ namespace eMecanicaLibrary.Models
                 .HasForeignKey(e => e.ser_id_garantia);
 
             modelBuilder.Entity<servico>()
-                .HasMany(e => e.servico_maodeobra)
+                .HasMany(e => e.servico_maoDeObra)
                 .WithRequired(e => e.servico)
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<servico>()
                 .HasMany(e => e.usuario1)
                 .WithMany(e => e.servico1)
-                .Map(m => m.ToTable("servico_mecanico", "estagio").MapLeftKey("ser_id").MapRightKey("usu_id"));
+                .Map(m => m.ToTable("servico_mecanico").MapLeftKey("ser_id").MapRightKey("usu_id"));
+
+            modelBuilder.Entity<servico_maoDeObra>()
+                .Property(e => e.smdo_valor)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<servico_maoDeObra>()
+                .Property(e => e.smdo_desconto)
+                .HasPrecision(2, 0);
 
             modelBuilder.Entity<unidade>()
                 .Property(e => e.un_unidade)
@@ -404,6 +515,7 @@ namespace eMecanicaLibrary.Models
 
             modelBuilder.Entity<usuario>()
                 .Property(e => e.usu_nivelacesso)
+                .IsFixedLength()
                 .IsUnicode(false);
 
             modelBuilder.Entity<usuario>()
@@ -457,9 +569,15 @@ namespace eMecanicaLibrary.Models
                 .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<venda>()
+                .Property(e => e.ven_valorTotal)
+                .HasPrecision(2, 0);
+
+            modelBuilder.Entity<venda>()
                 .HasMany(e => e.produto_venda)
                 .WithRequired(e => e.venda)
                 .WillCascadeOnDelete(false);
+
         }
-    }
+    #endregion
+}
 }

@@ -6,38 +6,34 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.contareceber")]
-    internal partial class contareceber
+    [Table("contaReceber")]
+    public partial class contaReceber
     {
         [Key]
-        internal int conr_id { get; set; }
+        public int conr_id { get; set; }
 
-        [Column(TypeName = "date")]
-        internal DateTime conr_datavencimento { get; set; }
+        public DateTime conr_datavencimento { get; set; }
 
-        internal decimal? conr_valorpago { get; set; }
+        public decimal? conr_valorpago { get; set; }
 
-        internal decimal conr_valor { get; set; }
+        public decimal conr_valor { get; set; }
 
-        internal int conr_parcela { get; set; }
+        public int conr_parcela { get; set; }
 
-        [Column(TypeName = "date")]
-        internal DateTime conr_dataemissao { get; set; }
+        public DateTime conr_dataemissao { get; set; }
 
-        [Column(TypeName = "date")]
-        internal DateTime? conr_datapagamento { get; set; }
+        public DateTime? conr_datapagamento { get; set; }
 
-        internal int? ser_id { get; set; }
+        public int? ser_id { get; set; }
 
-        internal int? ven_id { get; set; }
+        public int? ven_id { get; set; }
 
-        [Column(TypeName = "char")]
         [Required]
         [StringLength(1)]
-        internal string conr_formapagamento { get; set; }
+        public string conr_formapagamento { get; set; }
 
-        internal virtual servico servico { get; set; }
+        public virtual servico servico { get; set; }
 
-        internal virtual venda venda { get; set; }
+        public virtual venda venda { get; set; }
     }
 }

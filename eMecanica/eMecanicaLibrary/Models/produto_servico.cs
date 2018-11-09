@@ -6,27 +6,26 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.produto_servico")]
-    internal partial class produto_servico
+    public partial class produto_servico
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        internal int ser_id { get; set; }
+        public int ser_id { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        internal int prod_id { get; set; }
+        public int prod_id { get; set; }
 
-        internal decimal? ps_desconto { get; set; }
+        public decimal? ps_desconto { get; set; }
 
-        internal int ps_quantidade { get; set; }
+        public int ps_quantidade { get; set; }
 
-        internal decimal ps_valorVenda { get; set; }
+        public decimal ps_valorVenda { get; set; }
 
-        internal virtual produto produto { get; set; }
+        public virtual produto produto { get; set; }
 
-        internal virtual servico servico { get; set; }
+        public virtual servico servico { get; set; }
     }
 }

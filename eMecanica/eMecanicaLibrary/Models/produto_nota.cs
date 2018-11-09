@@ -6,27 +6,32 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.produto_nota")]
-    internal partial class produto_nota
+    public partial class produto_nota
     {
         [Key]
         [Column(Order = 0)]
         [StringLength(100)]
-        internal string not_id { get; set; }
+        public string not_id { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        internal int prod_id { get; set; }
+        public int prod_id { get; set; }
 
-        internal int pn_qtde { get; set; }
+        public int pn_qtde { get; set; }
 
-        internal decimal pn_valor { get; set; }
+        public decimal pn_valor { get; set; }
 
-        internal decimal pn_valortributo { get; set; }
+        public decimal pn_valortributo { get; set; }
 
-        internal virtual notafiscal notafiscal { get; set; }
+        public int pn_csosn { get; set; }
 
-        internal virtual produto produto { get; set; }
+        [Required]
+        [StringLength(4)]
+        public string pn_cfop { get; set; }
+
+        public virtual notaFiscal notaFiscal { get; set; }
+
+        public virtual produto produto { get; set; }
     }
 }

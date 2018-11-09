@@ -6,36 +6,35 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.venda")]
-    internal class venda
+    [Table("venda")]
+    public partial class venda
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        internal venda()
+        public venda()
         {
-            contareceber = new HashSet<contareceber>();
+            contaReceber = new HashSet<contaReceber>();
             produto_venda = new HashSet<produto_venda>();
         }
 
         [Key]
-        internal int ven_id { get; set; }
+        public int ven_id { get; set; }
 
-        internal decimal ven_valorTotal { get; set; }
+        public decimal ven_valorTotal { get; set; }
 
-        [Column(TypeName = "date")]
-        internal DateTime ven_data { get; set; }
+        public DateTime ven_data { get; set; }
 
-        internal int usu_id { get; set; }
+        public int usu_id { get; set; }
 
-        internal int cli_id { get; set; }
+        public int cli_id { get; set; }
 
-        internal virtual cliente cliente { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<contareceber> contareceber { get; set; }
+        public virtual cliente cliente { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        internal virtual ICollection<produto_venda> produto_venda { get; set; }
+        public virtual ICollection<contaReceber> contaReceber { get; set; }
 
-        internal virtual usuario usuario { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<produto_venda> produto_venda { get; set; }
+
+        public virtual usuario usuario { get; set; }
     }
 }

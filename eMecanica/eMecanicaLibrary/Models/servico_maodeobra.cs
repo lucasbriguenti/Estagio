@@ -6,25 +6,24 @@ namespace eMecanicaLibrary.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("estagio.servico_maodeobra")]
-    internal partial class servico_maodeobra
+    public partial class servico_maoDeObra
     {
         [Key]
         [Column(Order = 0)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        internal int mdo_id { get; set; }
+        public int mdo_id { get; set; }
 
         [Key]
         [Column(Order = 1)]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        internal int ser_id { get; set; }
+        public int ser_id { get; set; }
 
-        internal decimal smdo_valor { get; set; }
+        public decimal smdo_valor { get; set; }
 
-        internal decimal? smdo_desconto { get; set; }
+        public decimal? smdo_desconto { get; set; }
 
-        internal virtual maodeobra maodeobra { get; set; }
+        public virtual maoDeObra maoDeObra { get; set; }
 
-        internal virtual servico servico { get; set; }
+        public virtual servico servico { get; set; }
     }
 }
