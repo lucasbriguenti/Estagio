@@ -1,35 +1,49 @@
+﻿using eMecanicaLibrary.DAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace eMecanicaLibrary.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("estado")]
-    public partial class estado
+    internal class Estado
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public estado()
+        private int _id;
+
+        internal int id
         {
-            cidade = new HashSet<cidade>();
+            get { return _id; }
+            set { _id = value; }
         }
+        private int _cod;
 
-        [Key]
-        public int est_id { get; set; }
+        internal int codigo
+        {
+            get { return _cod; }
+            set { _cod = value; }
+        }
+        private string _nome;
 
-        [StringLength(30)]
-        public string est_cod { get; set; }
+        internal string nome
+        {
+            get { return _nome; }
+            set { _nome = value; }
+        }
+        private string _sigla;
 
-        [Required]
-        [StringLength(20)]
-        public string est_nome { get; set; }
-
-        [Required]
-        [StringLength(5)]
-        public string est_sigla { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cidade> cidade { get; set; }
+        internal string sigla
+        {
+            get { return _sigla; }
+            set { _sigla = value; }
+        }
+        internal List<Estado> getEstado()
+        {
+            return new EstadoDAO().getEstado();
+        }
+        internal Estado getEstado(int id)
+        {
+            return new EstadoDAO().getEstado(id);
+        }
     }
 }

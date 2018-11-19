@@ -1,35 +1,45 @@
+﻿using eMecanicaLibrary.DAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace eMecanicaLibrary.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("cidade")]
-    public partial class cidade
+    internal class Cidade
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public cidade()
+        private int _id;
+
+        internal int id
         {
-            endereco = new HashSet<endereco>();
+            get { return _id; }
+            set { _id = value; }
         }
+        private string _nome;
 
-        [Key]
-        public int cid_id { get; set; }
+        internal string nome
+        {
+            get { return _nome; }
+            set { _nome = value; }
+        }
+        private Estado _estado;
 
-        [Required]
-        [StringLength(30)]
-        public string cid_nome { get; set; }
+        internal Estado estado
+        {
+            get { return _estado; }
+            set { _estado = value; }
+        }
+        private int _cod;
 
-        public int est_id { get; set; }
-
-        [StringLength(20)]
-        public string cid_cod { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<endereco> endereco { get; set; }
-
-        public virtual estado estado { get; set; }
+        internal int codigo
+        {
+            get { return _cod; }
+            set { _cod = value; }
+        }
+        internal List<Cidade> getCidades(int idEstado)
+        {
+            return new CidadeDAO().getCidades(idEstado);
+        }
     }
 }

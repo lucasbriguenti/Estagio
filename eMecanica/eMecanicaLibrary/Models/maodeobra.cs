@@ -1,32 +1,41 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace eMecanicaLibrary.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("maoDeObra")]
-    public partial class maoDeObra
+    internal class MaoDeObra
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public maoDeObra()
+        private int _id;
+
+        internal int id
         {
-            servico_maoDeObra = new HashSet<servico_maoDeObra>();
+            get { return _id; }
+            set { _id = value; }
+        }
+        private decimal _valor;
+
+        internal decimal valor
+        {
+            get { return _valor; }
+            set { _valor = value; }
+        }
+        private TimeSpan _tempoMedio;
+
+        internal TimeSpan tempoMedio
+        {
+            get { return _tempoMedio; }
+            set { _tempoMedio = value; }
+        }
+        private string _descricao;
+
+        internal string descricao
+        {
+            get { return _descricao; }
+            set { _descricao = value; }
         }
 
-        [Key]
-        public int mdo_id { get; set; }
-
-        public decimal mdo_valor { get; set; }
-
-        [Required]
-        [StringLength(40)]
-        public string mdo_descricao { get; set; }
-
-        public DateTime? mdo_tempoMedio { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servico_maoDeObra> servico_maoDeObra { get; set; }
     }
 }

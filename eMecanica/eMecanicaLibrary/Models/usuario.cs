@@ -1,78 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace eMecanicaLibrary.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("usuario")]
-    public partial class usuario
+    internal class Usuario
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public usuario()
+        private int _id;
+
+        internal int id
         {
-            compra = new HashSet<compra>();
-            despesa = new HashSet<despesa>();
-            servico = new HashSet<servico>();
-            venda = new HashSet<venda>();
-            servico1 = new HashSet<servico>();
+            get { return _id; }
+            set { _id = value; }
+        }
+        private Endereco _end;
+
+        internal Endereco endereco
+        {
+            get { return _end; }
+            set { _end = value; }
+        }
+        private string _nome;
+
+        internal string nome
+        {
+            get { return _nome; }
+            set { _nome = value; }
+        }
+        private string _email;
+
+        internal string email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+        private string _senha;
+
+        internal string senha
+        {
+            get { return _senha; }
+            set { _senha = value; }
+        }
+        private char _nivel;
+
+        internal char nivelAcesso
+        {
+            get { return _nivel; }
+            set { _nivel = value; }
+        }
+        private string _cpf;
+
+        internal string cpf
+        {
+            get { return _cpf; }
+            set { _cpf = value; }
+        }
+        private string _rg;
+
+        internal string rg
+        {
+            get { return _rg; }
+            set { _rg = value; }
+        }
+        private string _fixo;
+
+        internal string telefoneFixo
+        {
+            get { return _fixo; }
+            set { _fixo = value; }
+        }
+        private string _cel;
+
+        internal string celular
+        {
+            get { return _cel; }
+            set { _cel = value; }
+        }
+        private DateTime dtnasc;
+
+        internal DateTime dataNascimento
+        {
+            get { return dtnasc; }
+            set { dtnasc = value; }
         }
 
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int usu_id { get; set; }
-
-        public int end_id { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string usu_nome { get; set; }
-
-        [Required]
-        [StringLength(50)]
-        public string usu_email { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string usu_senha { get; set; }
-
-        [Required]
-        [StringLength(1)]
-        public string usu_nivelacesso { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string cli_rg { get; set; }
-
-        [Required]
-        [StringLength(25)]
-        public string cli_cpf { get; set; }
-
-        [StringLength(20)]
-        public string usu_telfixo { get; set; }
-
-        public DateTime usu_dtnasc { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string usu_celular { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<compra> compra { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<despesa> despesa { get; set; }
-
-        public virtual endereco endereco { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servico> servico { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<venda> venda { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servico> servico1 { get; set; }
     }
 }

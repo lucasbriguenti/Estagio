@@ -1,63 +1,55 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace eMecanicaLibrary.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("cliente")]
-    public partial class cliente
+    internal abstract class Cliente
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public cliente()
+        private int _id;
+
+        internal int id
         {
-            notaFiscal = new HashSet<notaFiscal>();
-            servico = new HashSet<servico>();
-            veiculo = new HashSet<veiculo>();
-            venda = new HashSet<venda>();
+            get { return _id; }
+            set { _id = value; }
+        }
+        private string _nome;
+
+        internal string nome
+        {
+            get { return _nome; }
+            set { _nome = value; }
+        }
+        private string _email;
+
+        internal string email
+        {
+            get { return _email; }
+            set { _email = value; }
+        }
+        private Endereco _endereco;
+
+        internal Endereco endereco
+        {
+            get { return _endereco; }
+            set { _endereco = value; }
+        }
+        private string _celular;
+
+        internal string celular
+        {
+            get { return _celular; }
+            set { _celular = value; }
+        }
+        private string _fixo;
+
+        internal string telefoneFixo
+        {
+            get { return _fixo; }
+            set { _fixo = value; }
         }
 
-        [Key]
-        public int cli_id { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string cli_nome { get; set; }
-
-        [Required]
-        [StringLength(30)]
-        public string cli_email { get; set; }
-
-        public int end_id { get; set; }
-
-        [Required]
-        [StringLength(1)]
-        public string cli_tipo { get; set; }
-
-        [Required]
-        [StringLength(25)]
-        public string cli_celular { get; set; }
-
-        [StringLength(25)]
-        public string cli_telfixo { get; set; }
-
-        public virtual cliente_pf cliente_pf { get; set; }
-
-        public virtual cliente_pj cliente_pj { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<notaFiscal> notaFiscal { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<servico> servico { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<veiculo> veiculo { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<venda> venda { get; set; }
-
-        public virtual endereco endereco { get; set; }
     }
 }

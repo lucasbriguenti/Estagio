@@ -11,5 +11,3 @@ C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLib
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLibrary.dll
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLibrary.pdb
 C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\obj\Debug\eMecanicaLibrary.csprojAssemblyReference.cache
-C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\bin\Debug\bancoeMecanica.mdf
-C:\Users\Lucas\Desktop\estagio\eMecanica\eMecanicaLibrary\bin\Debug\bancoeMecanica_log.ldf

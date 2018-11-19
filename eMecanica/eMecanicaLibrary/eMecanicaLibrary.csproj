@@ -68,6 +68,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -76,44 +77,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\cidade.cs" />
-    <Compile Include="Models\cliente.cs" />
-    <Compile Include="Models\cliente_pf.cs" />
-    <Compile Include="Models\cliente_pj.cs" />
-    <Compile Include="Models\compra.cs" />
-    <Compile Include="Models\contaPagar.cs" />
-    <Compile Include="Models\contaReceber.cs" />
-    <Compile Include="Models\Context.cs" />
-    <Compile Include="Models\despesa.cs" />
-    <Compile Include="Models\empresa.cs" />
-    <Compile Include="Models\endereco.cs" />
-    <Compile Include="Models\estado.cs" />
-    <Compile Include="Models\fornecedor.cs" />
-    <Compile Include="Models\maoDeObra.cs" />
-    <Compile Include="Models\marca.cs" />
-    <Compile Include="Models\modelo.cs" />
-    <Compile Include="Models\notaFiscal.cs" />
-    <Compile Include="Models\parametros.cs" />
-    <Compile Include="Models\produto.cs" />
-    <Compile Include="Models\produto_compra.cs" />
-    <Compile Include="Models\produto_nota.cs" />
-    <Compile Include="Models\produto_servico.cs" />
-    <Compile Include="Models\produto_venda.cs" />
-    <Compile Include="Models\servico.cs" />
-    <Compile Include="Models\servico_maoDeObra.cs" />
-    <Compile Include="Models\unidade.cs" />
-    <Compile Include="Models\usuario.cs" />
-    <Compile Include="Models\veiculo.cs" />
-    <Compile Include="Models\venda.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="DAL\Banco.cs" />
+    <Compile Include="DAL\CidadeDAO.cs" />
+    <Compile Include="DAL\EnderecoDAO.cs" />
+    <Compile Include="DAL\EstadoDAO.cs" />
+    <Compile Include="DAL\UsuarioDAO.cs" />
+    <Compile Include="Models\Cidade.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\ClientePF.cs" />
+    <Compile Include="Models\ClientePJ.cs" />
+    <Compile Include="Models\Empresa.cs" />
+    <Compile Include="Models\Endereco.cs" />
+    <Compile Include="Models\Estado.cs" />
+    <Compile Include="Models\MaoDeObra.cs" />
+    <Compile Include="Models\Marca.cs" />
+    <Compile Include="Models\Modelo.cs" />
+    <Compile Include="Models\ServicoMaoDeObra.cs" />
+    <Compile Include="Models\Sessao.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\CidadeVM.cs" />
+    <Compile Include="ViewModels\EstadoVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
       <Visible>False</Visible>
@@ -125,15 +116,6 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="bancoeMecanica.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="bancoeMecanica_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>bancoeMecanica.mdf</DependentUpon>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

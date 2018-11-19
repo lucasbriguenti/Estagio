@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eMecanica.Usuario;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace eMecanica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHome());
+            Application.Run(new frmCadUsuario());
         }
     }
 }

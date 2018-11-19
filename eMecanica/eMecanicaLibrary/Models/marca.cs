@@ -1,31 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace eMecanicaLibrary.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("marca")]
-    public partial class marca
+    internal class Marca
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public marca()
+        private int _id;
+
+        internal int id
         {
-            modelo = new HashSet<modelo>();
+            get { return _id; }
+            set { _id = value; }
+        }
+        private string _nome;
+
+        internal string nome
+        {
+            get { return _nome; }
+            set { _nome = value; }
+        }
+        private string _logo;
+
+        internal string logo
+        {
+            get { return _logo; }
+            set { _logo = value; }
         }
 
-        [Key]
-        public int mar_id { get; set; }
-
-        [Required]
-        [StringLength(20)]
-        public string mar_nome { get; set; }
-
-        [Column(TypeName = "image")]
-        public byte[] mar_logo { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<modelo> modelo { get; set; }
     }
 }

@@ -1,64 +1,73 @@
+﻿using eMecanicaLibrary.DAL;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 namespace eMecanicaLibrary.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-    [Table("endereco")]
-    public partial class endereco
+    internal class Endereco
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public endereco()
+        private int _id;
+
+        internal int id
         {
-            cliente = new HashSet<cliente>();
-            empresa = new HashSet<empresa>();
-            fornecedor = new HashSet<fornecedor>();
-            parametros = new HashSet<parametros>();
-            usuario = new HashSet<usuario>();
+            get { return _id; }
+            set { _id = value; }
         }
+        private string _rua;
 
-        [Key]
-        public int end_id { get; set; }
+        internal string rua
+        {
+            get { return _rua; }
+            set { _rua = value; }
+        }
+        private int _numero;
 
-        [Required]
-        [StringLength(30)]
-        public string end_rua { get; set; }
+        internal int numero
+        {
+            get { return _numero; }
+            set { _numero = value; }
+        }
+        private string _bairro;
 
-        public int end_numero { get; set; }
+        internal string bairro
+        {
+            get { return _bairro; }
+            set { _bairro = value; }
+        }
+        private string _complemento;
 
-        [Required]
-        [StringLength(30)]
-        public string end_bairro { get; set; }
+        internal string complemento
+        {
+            get { return _complemento; }
+            set { _complemento = value; }
+        }
+        private string _referencia;
 
-        [StringLength(30)]
-        public string end_complemento { get; set; }
+        internal string referencia
+        {
+            get { return _referencia; }
+            set { _referencia = value; }
+        }
+        private Cidade _cidade;
 
-        [StringLength(30)]
-        public string end_referencia { get; set; }
+        internal Cidade cidade
+        {
+            get { return _cidade; }
+            set { _cidade = value; }
+        }
+        private string _cep;
 
-        public int cid_id { get; set; }
-
-        [Required]
-        [StringLength(10)]
-        public string end_cep { get; set; }
-
-        public virtual cidade cidade { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<cliente> cliente { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<empresa> empresa { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<fornecedor> fornecedor { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<parametros> parametros { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<usuario> usuario { get; set; }
+        internal string cep
+        {
+            get { return _cep; }
+            set { _cep = value; }
+        }
+        internal int gravar(Endereco e)
+        {
+            return new EnderecoDAO().gravar(e);
+        }
     }
 }
