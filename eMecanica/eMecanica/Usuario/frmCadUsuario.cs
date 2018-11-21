@@ -79,10 +79,6 @@ namespace eMecanica.Usuario
                 {
                     limpaCbb((ComboBox)con);
                 }
-                if(con is DateTimePicker)
-                {
-                    limpaDatePicker((DateTimePicker)con);
-                }
             }
             txtNome.Focus();
         }

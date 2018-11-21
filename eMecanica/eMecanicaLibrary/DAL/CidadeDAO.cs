@@ -25,12 +25,29 @@ namespace eMecanicaLibrary.DAL
             }
             return dados;
         }
+        private Cidade tableToObject(DataTable dt)
+        {
+            return new Cidade()
+            {
+                codigo = Convert.ToInt32(dt.Rows[0]["cid_cod"]),
+                id = Convert.ToInt32(dt.Rows[0]["cid_id"]),
+                nome = dt.Rows[0]["cid_nome"].ToString()
+            };
+        }
         internal List<Cidade> getCidades(int id)
         {
             ComandoSQL.Parameters.Clear();
             ComandoSQL.CommandText = @"select * from cidade where est_id=" + id + ";";
             DataTable dt = ExecutaSelect();
             return tableToList(dt);
+        }
+        internal Cidade getCidade(int id)
+        {
+            ComandoSQL.Parameters.Clear();
+            ComandoSQL.CommandText = @"select * from cidade where cid_id=@cid;";
+            ComandoSQL.Parameters.AddWithValue("@cid", id);
+            DataTable dt = ExecutaSelect();
+            return tableToObject(dt);
         }
     }
 }

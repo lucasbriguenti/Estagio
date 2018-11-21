@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eMecanicaLibrary.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -85,6 +86,9 @@ namespace eMecanicaLibrary.Models
             get { return _telefone2; }
             set { _telefone2 = value; }
         }
-
+        internal bool gravar()
+        {
+            return new EmpresaDAO().gravar(this);
+        }
     }
 }

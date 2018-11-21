@@ -41,5 +41,9 @@ namespace eMecanicaLibrary.Models
         {
             return new CidadeDAO().getCidades(idEstado);
         }
+        internal Cidade getCidade(int id)
+        {
+            return new CidadeDAO().getCidade(id);
+        }
     }
 }

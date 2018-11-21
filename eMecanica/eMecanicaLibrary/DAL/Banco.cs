@@ -148,7 +148,7 @@ namespace eMecanicaLibrary.DAL
         /// Método responsável pela execução dos comandos de Insert com retorno do último código cadastrado
         /// </summary>
         /// <returns>Retorna um número inteiro que indica a quantidade de linhas afetadas</returns>
-        protected int ExecutaComando(out int ultimoCodigo,bool transacao= false)
+        protected int ExecutaComando(out int ultimoCodigo,bool transacao=false)
         {
             if (_comandoSQL.CommandText.Trim() == string.Empty)
                 throw new Exception("Não há instrução SQL a ser executada.");
@@ -159,7 +159,7 @@ namespace eMecanicaLibrary.DAL
             try
             {
                 //Executa o comando de insert e já retorna o @@IDENTITY
-                ultimoCodigo = Convert.ToInt32(_comandoSQL.ExecuteScalar());
+                ultimoCodigo = Convert.ToInt32(ExecutaScalar());
                 retorno = 1;
             }
             catch(Exception ex)
@@ -210,7 +210,7 @@ namespace eMecanicaLibrary.DAL
         {
             if (_comandoSQL.CommandText.Trim() == string.Empty)
                 throw new Exception("Não há instrução SQL a ser executada.");
-
+            _comandoSQL.CommandText += " SELECT CAST(scope_identity() AS int)";
             AbreConexao(false);
             double retorno;
             try

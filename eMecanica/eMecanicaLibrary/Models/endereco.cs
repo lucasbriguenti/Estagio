@@ -65,9 +65,9 @@ namespace eMecanicaLibrary.Models
             get { return _cep; }
             set { _cep = value; }
         }
-        internal int gravar(Endereco e)
+        internal int gravar()
         {
-            return new EnderecoDAO().gravar(e);
+            return new EnderecoDAO().gravar(this);
         }
     }
 }

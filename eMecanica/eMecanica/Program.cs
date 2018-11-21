@@ -17,7 +17,7 @@ namespace eMecanica
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmCadUsuario());
+            Application.Run(new Empresa.frmEmpresa());
         }
     }
 }
