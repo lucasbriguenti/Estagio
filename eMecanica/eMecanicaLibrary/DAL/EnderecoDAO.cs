@@ -1,6 +1,7 @@
 ﻿using eMecanicaLibrary.Models;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,6 +45,30 @@ namespace eMecanicaLibrary.DAL
             }
             
             
+        }
+        private Endereco tableToObject(DataRow row)
+        {
+            return new Endereco()
+            {
+                bairro = row["end_bairro"].ToString(),
+                cep = row["end_cep"].ToString(),
+                cidade = new Cidade().getCidade(Convert.ToInt32(row["cid_id"])),
+                complemento = row["end_complemento"].ToString(),
+                id = Convert.ToInt32(row["end_id"]),
+                numero = Convert.ToInt64(row["end_numero"]),
+                referencia = row["end_referencia"].ToString(),
+                rua = row["end_rua"].ToString()
+            };
+        }
+        internal Endereco getEndereco(int id)
+        {
+            ComandoSQL.Parameters.Clear();
+            ComandoSQL.CommandText = @"select * from endereco where end_id=@id;";
+            ComandoSQL.Parameters.AddWithValue("@id", id);
+            DataTable dt = ExecutaSelect();
+            if (dt != null && dt.Rows.Count > 0)
+                return tableToObject(dt.Rows[0]);
+            return null;
         }
     }
 }

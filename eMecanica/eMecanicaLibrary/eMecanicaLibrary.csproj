@@ -77,8 +77,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\EmpresaController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="DAL\Banco.cs" />
     <Compile Include="DAL\CidadeDAO.cs" />
     <Compile Include="DAL\EmpresaDAO.cs" />
@@ -102,6 +102,7 @@
     <Compile Include="ViewModels\CidadeVM.cs" />
     <Compile Include="ViewModels\EmpresaVM.cs" />
     <Compile Include="ViewModels\EstadoVM.cs" />
+    <Compile Include="ViewModels\UsuarioVM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

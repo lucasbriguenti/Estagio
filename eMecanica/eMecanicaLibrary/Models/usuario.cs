@@ -1,4 +1,5 @@
-﻿using System;
+﻿using eMecanicaLibrary.DAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -43,9 +44,9 @@ namespace eMecanicaLibrary.Models
             get { return _senha; }
             set { _senha = value; }
         }
-        private char _nivel;
+        private int _nivel;
 
-        internal char nivelAcesso
+        internal int nivelAcesso
         {
             get { return _nivel; }
             set { _nivel = value; }
@@ -85,6 +86,21 @@ namespace eMecanicaLibrary.Models
             get { return dtnasc; }
             set { dtnasc = value; }
         }
-
+        internal bool gravar()
+        {
+            return new UsuarioDAO().gravar(this);
+        }
+        internal bool excluir(int id)
+        {
+            return new UsuarioDAO().excluir(id);
+        }
+        internal Usuario getUsuario(int id)
+        {
+            return new UsuarioDAO().getUsuario(id);
+        }
+        internal List<Usuario> getUsuario(string nome)
+        {
+            return new UsuarioDAO().getUsuario(nome);
+        }
     }
 }

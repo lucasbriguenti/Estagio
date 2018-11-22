@@ -29,14 +29,14 @@ namespace eMecanicaLibrary.DAL
         internal List<Estado> getEstado()
         {
             ComandoSQL.Parameters.Clear();
-            ComandoSQL.CommandText = @"select * from estado;";
+            ComandoSQL.CommandText = @"select UPPER(est_nome) est_nome,est_id,est_cod,est_sigla from estado;";
             DataTable dt = ExecutaSelect();
             return tableToList(dt);
         }
         internal Estado getEstado(int id)
         {
             ComandoSQL.Parameters.Clear();
-            ComandoSQL.CommandText = @"select * from estado where est_id=" + id + ";";
+            ComandoSQL.CommandText = @"select UPPER(est_nome) est_nome,est_id,est_cod,est_sigla from estado where est_id=" + id + ";";
             DataTable dt = ExecutaSelect();
             if (dt != null)
                 return new Estado()

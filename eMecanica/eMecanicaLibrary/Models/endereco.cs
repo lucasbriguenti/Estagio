@@ -23,9 +23,9 @@ namespace eMecanicaLibrary.Models
             get { return _rua; }
             set { _rua = value; }
         }
-        private int _numero;
+        private long _numero;
 
-        internal int numero
+        internal long numero
         {
             get { return _numero; }
             set { _numero = value; }
@@ -68,6 +68,10 @@ namespace eMecanicaLibrary.Models
         internal int gravar()
         {
             return new EnderecoDAO().gravar(this);
+        }
+        internal Endereco getEndereco(int id)
+        {
+            return new EnderecoDAO().getEndereco(id);
         }
     }
 }
