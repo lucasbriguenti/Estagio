@@ -102,5 +102,9 @@ namespace eMecanicaLibrary.Models
         {
             return new UsuarioDAO().getUsuario(nome);
         }
+        internal List<Usuario> getUsuario()
+        {
+            return new UsuarioDAO().getUsuario();
+        }
     }
 }

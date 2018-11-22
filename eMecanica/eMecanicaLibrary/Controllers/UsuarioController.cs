@@ -116,6 +116,58 @@ namespace eMecanicaLibrary.Controllers
             }
             return null;
         }
+        public List<UsuarioVM> getUsuario()
+        {
+            var dados = new Usuario().getUsuario();
+            List<UsuarioVM> list = new List<UsuarioVM>();
+            foreach(Usuario u in dados)
+            {
+                UsuarioVM usu = new UsuarioVM();
+                usu.bairro = u.endereco.bairro;
+                usu.celular = u.celular;
+                usu.cep = u.endereco.cep;
+                usu.cidade = u.endereco.cidade.id;
+                usu.id = u.id;
+                usu.idEndereco = u.endereco.id;
+                usu.nivelAcesso = u.nivelAcesso;
+                usu.nome = u.nome;
+                usu.rg = u.rg;
+                usu.rua = u.endereco.rua;
+                usu.senha = u.senha;
+                usu.fixo = u.telefoneFixo;
+                list.Add(usu);
+            }
+            if (list.Count > 0)
+                return list;
+            /*
+            if (dados != null && dados.Count > 0)
+            {
+                return (from Usuario u in dados
+                        select new UsuarioVM()
+                        {
+                            bairro = u.endereco.bairro,
+                            celular = u.celular,
+                            cep = u.endereco.cep,
+                            cidade = u.endereco.cidade.id,
+                            id = u.id,
+                            complemento = u.endereco.complemento,
+                            cpf = u.cpf,
+                            dtNasc = u.dataNascimento,
+                            email = u.email,
+                            estado = u.endereco.cidade.estado.id,
+                            fixo = u.telefoneFixo,
+                            idEndereco = u.endereco.id,
+                            nivelAcesso = u.nivelAcesso,
+                            nome = u.nome,
+                            num = u.endereco.numero,
+                            referencia = u.endereco.referencia,
+                            rg = u.rg,
+                            rua = u.endereco.rua,
+                            senha = u.senha
+                        }).ToList();
+            }*/
+            return null;
+        }
         public UsuarioVM getUsuario(int id)
         {
             Usuario u = new Usuario().getUsuario(id);

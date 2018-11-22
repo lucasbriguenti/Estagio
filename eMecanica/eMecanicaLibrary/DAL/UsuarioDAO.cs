@@ -89,6 +89,15 @@ namespace eMecanicaLibrary.DAL
                 return tableToList(dt);
             return null;
         }
+        internal List<Usuario> getUsuario()
+        {
+            ComandoSQL.Parameters.Clear();
+            ComandoSQL.CommandText = @"select * from usuario;";
+            DataTable dt = ExecutaSelect();
+            if (dt != null && dt.Rows.Count > 0)
+                return tableToList(dt);
+            return null;
+        }
 
     }
 }

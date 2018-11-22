@@ -44,6 +44,7 @@
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
             this.paneMeio = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.usuárioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.paneSuperior.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.paneMeio.SuspendLayout();
@@ -118,13 +119,14 @@
             // 
             // menuStrip
             // 
-            this.menuStrip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.menuStrip.BackColor = System.Drawing.Color.White;
             this.menuStrip.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.servicoMenuStrip,
             this.clienteToolStripMenuItem,
             this.produtoToolStripMenuItem,
-            this.fornecedorToolStripMenuItem});
+            this.fornecedorToolStripMenuItem,
+            this.usuárioToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(1215, 29);
@@ -133,7 +135,7 @@
             // 
             // servicoMenuStrip
             // 
-            this.servicoMenuStrip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(151)))), ((int)(((byte)(189)))));
+            this.servicoMenuStrip.ForeColor = System.Drawing.Color.Black;
             this.servicoMenuStrip.Name = "servicoMenuStrip";
             this.servicoMenuStrip.Size = new System.Drawing.Size(84, 25);
             this.servicoMenuStrip.Text = "Serviços";
@@ -143,7 +145,7 @@
             this.clienteToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.clienteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem});
-            this.clienteToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(151)))), ((int)(((byte)(189)))));
+            this.clienteToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
             this.clienteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.clienteToolStripMenuItem.Size = new System.Drawing.Size(78, 25);
@@ -159,7 +161,7 @@
             // 
             // produtoToolStripMenuItem
             // 
-            this.produtoToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(151)))), ((int)(((byte)(189)))));
+            this.produtoToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
             this.produtoToolStripMenuItem.Size = new System.Drawing.Size(84, 25);
             this.produtoToolStripMenuItem.Text = "Produto";
@@ -168,7 +170,7 @@
             // 
             this.fornecedorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastroToolStripMenuItem1});
-            this.fornecedorToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(151)))), ((int)(((byte)(189)))));
+            this.fornecedorToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
             this.fornecedorToolStripMenuItem.Name = "fornecedorToolStripMenuItem";
             this.fornecedorToolStripMenuItem.Size = new System.Drawing.Size(111, 25);
             this.fornecedorToolStripMenuItem.Text = "Fornecedor";
@@ -195,7 +197,7 @@
             // 
             // paneMeio
             // 
-            this.paneMeio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
+            this.paneMeio.BackColor = System.Drawing.Color.White;
             this.paneMeio.Controls.Add(this.panel1);
             this.paneMeio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.paneMeio.Location = new System.Drawing.Point(0, 30);
@@ -205,13 +207,19 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(45)))), ((int)(((byte)(48)))));
+            this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.Controls.Add(this.bunifuCustomLabel1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 542);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1217, 24);
             this.panel1.TabIndex = 0;
+            // 
+            // usuárioToolStripMenuItem
+            // 
+            this.usuárioToolStripMenuItem.Name = "usuárioToolStripMenuItem";
+            this.usuárioToolStripMenuItem.Size = new System.Drawing.Size(78, 25);
+            this.usuárioToolStripMenuItem.Text = "Usuário";
             // 
             // frmHome
             // 
@@ -254,5 +262,6 @@
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cadastroToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem servicoMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem usuárioToolStripMenuItem;
     }
 }

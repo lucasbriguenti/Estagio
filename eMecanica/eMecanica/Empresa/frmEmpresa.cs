@@ -194,7 +194,7 @@ namespace eMecanica.Empresa
                 cbbCidade.DataSource = list;
             }
         }
-
+        #region
         private void lbRazao_Click(object sender, EventArgs e)
         {
 
@@ -370,5 +370,6 @@ namespace eMecanica.Empresa
         {
 
         }
+        #endregion
     }
 }
